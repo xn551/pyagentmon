@@ -1,7 +1,12 @@
 # PyAgentMon
 Become the Master Trainer of PyAgentMon! 
  
-A local Python code agent training framework. Train your AI to write, run, debug, and evolve into your exclusive coding partner — fully self‑hosted, sandbox‑safe, and endlessly customizable.
+A local Python code agent training framework. Train your AI to write, run, debug, and evolve into your exclusive coding partner — fully self‑hosted, sandbox‑safe, and endlessly customizable.Then you can do any cool things, such as 
+- writing novels,
+- drawing,
+- generating models for 3D printing,
+- reading literature to design experiments,
+- making PPTs or written DOC reports, etc
  
 ## Core Philosophy
  
