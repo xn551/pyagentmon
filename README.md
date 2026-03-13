@@ -1,7 +1,7 @@
 # PyAgentMon
 Become the Master Trainer of PyAgentMon! 
  
-A local Python code agent training framework. Train your AI to write, run, debug, and evolve into your exclusive coding partner — fully self‑hosted, sandbox‑safe, and endlessly customizable.Then you can do any cool things, such as 
+A local Python code agent training framework. Most claw-like applications utilize WSL and Linux, whereas this project primarily relies on the cmd and Powershell tools on the Windows system. Train your AI to write, run, debug, and evolve into your exclusive coding partner — fully self‑hosted, sandbox‑safe, and endlessly customizable.Then you can do any cool things, such as 
 - writing novels,
 - drawing,
 - generating models for 3D printing,
