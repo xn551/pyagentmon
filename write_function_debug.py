@@ -15,17 +15,16 @@ import os
 import ollama
 import time
 import cv2
-#MODEL = "gpt-oss:20b"
-MODEL = "gemma3:27b"
-#MODEL = "deepseek-coder:latest"
-#MODEL = "deepseek-r1:1.5b"
+Model = "gpt-oss:20b"
+#Model = "gemma3:27b"
+#Model = "deepseek-r1:1.5b"
 
 
 
 
 from snekko import cartoon
 
-def q1a1_re_msg(q,messages=[],model=MODEL):
+def q1a1_re_msg(q,messages=[],model=Model):
 
     print(f"Used model:{model}")
 
@@ -175,7 +174,7 @@ gen_cmd_prompt = """
 你是一个可以调用windows系统命令的AI Agent，严格按照JSON格式返回结果,不要给出任何解释
 输出格式为{"action": "run_cmd", "cmd": "["命令","参数1","参数2",...]"
 """
-def stage_play_script(obj_str, file_name = "test_gem3.py", MODEL=MODEL):
+def stage_play_script(obj_str, file_name = "test_gem3.py", MODEL=Model):
     
     n_max = 10
     q_l = [None]*10
@@ -302,39 +301,13 @@ def stage_play_script(obj_str, file_name = "test_gem3.py", MODEL=MODEL):
 '''            
 
     
-
+import argparse
 if __name__ == "__main__":
-    question = '''写一个python脚本，提供函数接口和命令行接口
-1.逐行读取，直到找到包含字符串'中国标准时间'和字符串'8:36:26'的行,并打印改行字符串和行号
-2.继续逐行读取，找到'Read CH1 short data number: 4096:'的行，并打印该行和行号,假设改行行号为n
-3.打印n+1行的内容和n+1，将二者作为返回值，
-'''
-    file = "fun_gem.py"
-    question = '''写一个python函数。在命令行直接调用脚本时，可以测试函数的功能
-    1.已知一个大矩阵M等分为若干个小矩阵m，假设分成nx*ny个
-    2.写一个函数，已知小矩阵m的二维索引，自动返回m在大矩阵中对应的行数范围和列数范围
-    '''
+    parser = argparse.ArgumentParser(description="Using the agent to write a python function, run the test and autodebug for 1 time.")
+    parser.add_argument('-q', '--question', default="Hi, wirte a hello programe", help='Prompt, object of the function')
+    parser.add_argument('-f', '--file', defatut="test.py",help='The direction you would like to save the function as py file.')
+    parser.add_argument('-m', '--model', default="gpt-oss:20b", help='The utilized model's anme')
+    args = parser.parse_args()
 
-    file = "fun_gem3.py"
-    question = '''写一个python函数。在命令行直接调用脚本时，可以测试函数的功能
-    1.我有一个图片，通过opencv读取，并且将其分割成了nx*ny的featuremap
-    2.写一个函数，已知featuremap中某一个单元的索引，返回其在整个图像中的像素坐标范围
-    3.测试函数供能时，不要用opencv读取图片，生成一个随机的二维numpy矩阵作为输入，
-    '''
-
-    file = "fun_gem5.py"
-    question = '''写一个python函数。再写一个主函数测试函数的功能。在命令行直接调用脚本时，运行主函数
-    1.我有一个图片，通过opencv读取，并且将其分割成了nx*ny的featuremap
-    2.写一个函数，已知原图中的识别目标的yolo位置标签，和featurmap中某一单元的索引。如果目标在featuremap单元内，将原yolo标签转换为目标在featuremap中的yolo标签 
-    3.测试函数供能时，如果用opencv读取图片，生成一个随机的二维numpy矩阵作为输入。测试中既要有目标在featuremap单元内的例子，也要有不在的测试
-    '''
-
-    file = "fun_gem6.py"
-    question = '''写一个python函数。再写一个主函数测试函数的功能。在命令行直接调用脚本时，运行主函数
-    1.我有一个图片，通过opencv读取，并且将其分割成了nx*ny的featuremap
-    2.写一个函数，已知原图中的识别目标的yolo位置标签，和featurmap中某一单元的索引。如果目标在featuremap单元内，将原yolo标签转换为目标在featuremap中的yolo标签 
-    3.测试函数供能时，如果用opencv读取图片，生成一个随机的二维numpy矩阵作为输入。测试的所有例子中，有一半的例子要求目标在featuremap单元内，另一半目标不在单元内。
-    '''
-    
-    stage_play_script(question,file)
+    stage_play_script(args.question, args.file, args.model)
 
