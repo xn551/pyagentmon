@@ -1,0 +1,1 @@
+Model_Name = "gemma3:12b"
