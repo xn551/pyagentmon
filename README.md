@@ -27,15 +27,7 @@ A local Python code agent training framework. Most claw-like applications utiliz
  
  
 ## Start Your Trainer Journey
- 
-bash
-  
-git clone https://github.com/your-id/PyAgentMon.git
-cd PyAgentMon
+The project is target for windows cmd and powershell drived python agent.
+- In 2026-03-27, three functins have been tested. Now you can call the agent 1) to run a windows cmd, 2) write a text of python program and saved it into the file, or 3) write a python function and auto-run it and debug with cartoon display.
 
-python local_code_agent.py
- 
- 
-Your code agent, trained by you.
-From today, you are the PyAgentMon Master Trainer! 🧠
 
